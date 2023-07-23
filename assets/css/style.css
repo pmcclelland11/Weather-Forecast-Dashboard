@@ -1,75 +1,141 @@
-/* Reset some default styles */
-body, h1, p {
+body {
+    font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background: grey;
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
 
-.container {
-    display: flex;
+.main-container {
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Styles for Search Bar */
 .search-container {
-    background: white;
-    padding: 2em;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 400px;
-    margin: 1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .search {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 24px;
+    padding: 0.5rem;
+    height: 50px; 
 }
 
 .search-bar {
-    flex: 1; 
     border: none;
     outline: none;
     padding: 0.5em 1em;
     border-radius: 24px;
-    background: #7c7c7c2b;
-    color: white;
+    background: #7c7c7c78;
+    color: black;
+    height: 50%; 
+    line-height: 1;
 }
 
 .search-btn {
-    margin-left: 0.5em; 
+    margin-left: 0.5em;
     border-radius: 50%;
     border: none;
     height: 46px;
     width: 46px;
     outline: none;
-    background: #7c7c7c2b;
+    background: #7c7c7c78;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    line-height: 1; 
 }
 
-.search-btn:hover {
-    background: #7c7c7c6b;
+.weather-container, .forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* Styles for Weather Card */
 .weather-container {
-    background: white;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 400px;
-    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .card {
-    background: white;
-    padding: 2em;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    margin-bottom: 2rem;
     border-radius: 5px;
-    max-width: 400px;
+    width: 19%;
+    min-width: 200px;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+}
+
+.forecast-title {
+    text-align: center;
+    visibility: hidden;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    visibility: hidden;
+}
+
+
+.forecast-card {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    max-width: 200px;
+
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+}
+
+.city {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.date {
+    margin-bottom: 0.5rem;
+}
+
+.temp {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    font-size: .8rem;
+}
+
+.humidity, .wind {
+    margin-bottom: 0.3rem;
 }
