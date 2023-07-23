@@ -1,9 +1,11 @@
+/* Global styles */
 body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* Header styles */
 header {
     background-color: #333;
     color: #fff;
@@ -11,10 +13,11 @@ header {
     padding: 1rem 0;
 }
 
+/* Search history dropdown styles */
 .search-history-dropdown {
     display: flex;
-    align-items: center; /* Align items vertically in the center */
-    position: relative; /* Add relative positioning to make dropdown-content relative to its parent */
+    align-items: center; 
+    position: relative;
 }
 
 .dropdown-btn {
@@ -32,11 +35,11 @@ header {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px #00000033;
     padding: 12px 16px;
     z-index: 1;
-    top: 100%; /* Position the dropdown-content below its parent */
-    right: 0; /* Align the right side of the dropdown-content with the right side of its parent */
+    top: 100%;
+    right: 0;
 }
 
 .dropdown-content a {
@@ -51,11 +54,13 @@ header {
     background-color: #f1f1f1;
 }
 
+/* Main container styles */
 .main-container {
     margin: 0 auto;
     padding: 2rem;
 }
 
+/* Search container styles */
 .search-container {
     display: flex;
     justify-content: space-around;
@@ -63,6 +68,7 @@ header {
     margin-bottom: 1rem;
 }
 
+/* Search bar styles */
 .search {
     display: flex;
     align-items: center;
@@ -80,10 +86,14 @@ header {
     outline: none;
     padding: 0.5em 1em;
     border-radius: 24px;
-    background: #7c7c7c78;
+    background: #7c7c7c;
     color: black;
     height: 50%; 
     line-height: 1;
+}
+
+.search-bar::placeholder {
+    color: #00000099;
 }
 
 .search-btn {
@@ -93,13 +103,14 @@ header {
     height: 46px;
     width: 46px;
     outline: none;
-    background: #7c7c7c78;
+    background: #7c7c7c;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
     line-height: 1; 
 }
 
+/* Weather and forecast container styles */
 .weather-container, .forecast-container {
     display: flex;
     flex-wrap: wrap;
@@ -113,6 +124,7 @@ header {
     align-items: center; 
 }
 
+/* Card styles */
 .card {
     background-color: #f5f5f5;
     padding: 1rem;
@@ -122,6 +134,7 @@ header {
     min-width: 200px;
 }
 
+/* Current weather card styles */
 .current-weather {
     display: flex;
     flex-direction: column;
@@ -129,11 +142,16 @@ header {
     text-align: center; 
 }
 
+/* Forecast title styles */
 .forecast-title {
     text-align: center;
     visibility: hidden;
+    background: #ffffff99;
+    width: 200px;
+    margin: 0 auto;
 }
 
+/* Forecast container styles */
 .forecast-container {
     display: flex;
     justify-content: center; 
@@ -143,13 +161,12 @@ header {
     visibility: hidden;
 }
 
-
+/* Forecast cards style and format*/
 .forecast-card {
     background-color: #f0f0f0;
     color: #333;
     border: 1px solid #ccc;
     max-width: 200px;
-
 }
 
 .icon {
@@ -184,7 +201,10 @@ header {
     margin-bottom: 0.3rem;
 }
 
+/* Footer styles */
 footer {
+    background-color: #333;
+    color: white;
     padding: 2%;
     justify-content: center;
     text-align: center;
