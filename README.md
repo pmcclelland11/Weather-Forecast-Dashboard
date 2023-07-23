@@ -38,7 +38,7 @@ No special installation is necessary to view this project.
 This project is intended for education purposes only.
 
 ## Features
-HTML / CSS /JavaScript
+HTML / CSS / JavaScript
 
 ## Contributing
 No other contributors have added to this project.
@@ -52,9 +52,9 @@ N/A
 ## Authors
 Created by Patrick McClelland, UC Berkeley Bootcamp Student
 
-## Webpage Screenshot
-![Weather Forecast Dashboard - Webpage Screenshot](./assets/images/)
-
 ## Link to Deployed Application
 To access the deployed application, please click the link below:
-https://pmcclelland11.github.io/
+https://pmcclelland11.github.io/Weather-Forecast-Dashboard/
+
+## Webpage Screenshot
+![Weather Forecast Dashboard - Webpage Screenshot](./assets/images/webpage-screenshot.png)
