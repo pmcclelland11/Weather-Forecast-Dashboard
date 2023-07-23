@@ -6,33 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast Dashboard</title>
     <script src="https://kit.fontawesome.com/e311760a74.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-</head>
 
 <body>
-    <div class="container">
+    <header>
+        <h1>Weather Forecast Dashboard</h1>
+    </header>
+
+    <main class="main-container">
         <!-- Search Bar -->
         <div class="search-container">
             <div class="search">
-                <input type="text" class="search-bar">
+                <input type="text" class="search-bar" placeholder="Enter city name here">
                 <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
 
         <!-- Today's Weather Card -->
         <div class="weather-container">
-            <div class="card">
-                <h2 class="city">Berkeley, CA</h2>
-                <div class="date">Today's Weather</div>
-                <img src="" alt="" class="icon" />
-                <div class="temp">64°F</div>
-                <div class="description">Cloudy</div>
-                <div class="humidity">Humidity..</div>
-                <div class="wind">Wind Speed: --mph</div>
+            <div class="card current-weather">
+                <h2 class="city">City Name</h2>
+                <div class="date">Date</div>
+                <img src="" alt="current weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
             </div>
         </div>
-    </div>
 
+        <!-- 5-Day Forecast Title -->
+        <div class="forecast-title">
+            <h2>5-Day Forecast</h2>
+        </div>
+
+        <!-- Forecast Containers -->
+        <div class="forecast-container">
+            <div class="card forecast-card">
+                <h3 class="date">Date</h3>
+                <img src="" alt="forecast weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
+            </div>
+            <div class="card forecast-card">
+                <h3 class="date">Date</h3>
+                <img src="" alt="forecast weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
+            </div>
+            <div class="card forecast-card">
+                <h3 class="date">Date</h3>
+                <img src="" alt="forecast weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
+            </div>
+            <div class="card forecast-card">
+                <h3 class="date">Date</h3>
+                <img src="" alt="forecast weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
+            </div>
+            <div class="card forecast-card">
+                <h3 class="date">Date</h3>
+                <img src="" alt="forecast weather icon" class="icon" />
+                <div class="temp">Temperature</div>
+                <div class="description">Weather Description</div>
+                <div class="humidity">Humidity</div>
+                <div class="wind">Wind Speed</div>
+            </div>
+        </div>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 
