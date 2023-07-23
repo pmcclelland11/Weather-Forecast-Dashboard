@@ -23,7 +23,7 @@ var weather = {
         city.textContent = data.name;
         date.textContent = 'Today\'s Weather';
         icon.src = 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-        temp.textContent = data.main.temp + '°F'; // Display temperature in Fahrenheit
+        temp.textContent = data.main.temp + '°F';
         description.textContent = data.weather[0].description;
         humidity.textContent = 'Humidity: ' + data.main.humidity + '%';
         wind.textContent = 'Wind Speed: ' + data.wind.speed + ' mph';
@@ -46,19 +46,16 @@ var forecast = {
     displayForecast: function (data) {
         var forecastCards = document.querySelectorAll('.forecast-card');
 
-        // Create an object to group the forecast data by date
         var forecastDataByDate = {};
 
-        // Loop through the forecast data and group it by date
         data.list.forEach((forecastData) => {
-            var date = forecastData.dt_txt.split(' ')[0]; // Extract the date from the timestamp
+            var date = forecastData.dt_txt.split(' ')[0];
 
             if (!forecastDataByDate[date]) {
                 forecastDataByDate[date] = forecastData;
             }
         });
 
-        // Loop through the forecast cards and update their content for each day
         var dateKeys = Object.keys(forecastDataByDate);
         for (var i = 0; i < forecastCards.length; i++) {
             var date = forecastCards[i].querySelector('.date');
@@ -73,7 +70,7 @@ var forecast = {
 
             date.textContent = formattedDate;
             icon.src = 'https://openweathermap.org/img/w/' + forecastData.weather[0].icon + '.png';
-            temp.textContent = forecastData.main.temp + '°F'; // Display temperature in Fahrenheit
+            temp.textContent = forecastData.main.temp + '°F';
             description.textContent = forecastData.weather[0].description;
             humidity.textContent = 'Humidity: ' + forecastData.main.humidity + '%';
             wind.textContent = 'Wind Speed: ' + forecastData.wind.speed + ' mph';
@@ -85,11 +82,12 @@ function searchWeather() {
     var input = document.querySelector('.search-bar');
     var city = input.value.trim();
     if (city) {
+        saveCityToLocalStorage(city);
+
         weather.fetchWeather(city);
-        forecast.fetchForecast(city); // Fetch and display 5-day forecast
+        forecast.fetchForecast(city);
         input.value = '';
 
-        // Show the forecast title and container when weather data is fetched
         var forecastTitle = document.querySelector('.forecast-title');
         var forecastContainer = document.querySelector('.forecast-container');
         forecastTitle.style.visibility = 'visible';
@@ -99,16 +97,64 @@ function searchWeather() {
     }
 }
 
-// Call the fetchWeather() function to retrieve weather data for the default city (Berkeley, CA)
+function saveCityToLocalStorage(city) {
+    var searchHistory = localStorage.getItem('searchHistory');
+    if (searchHistory) {
+        var historyArray = JSON.parse(searchHistory);
+        historyArray.push(city);
+        localStorage.setItem('searchHistory', JSON.stringify(historyArray));
+    } else {
+        var historyArray = [city];
+        localStorage.setItem('searchHistory', JSON.stringify(historyArray));
+    }
+
+    loadSearchHistory();
+}
+
+function loadSearchHistory() {
+    var searchHistory = localStorage.getItem('searchHistory');
+    if (searchHistory) {
+        var historyArray = JSON.parse(searchHistory);
+        var dropdownContent = document.getElementById('searchHistoryDropdown');
+        dropdownContent.innerHTML = '';
+
+        for (var i = 0; i < historyArray.length; i++) {
+            var cityName = historyArray[i];
+            var dropdownItem = document.createElement('a');
+            dropdownItem.textContent = cityName;
+            dropdownItem.addEventListener('click', function () {
+                weather.fetchWeather(this.textContent);
+                forecast.fetchForecast(this.textContent);
+            });
+            dropdownContent.appendChild(dropdownItem);
+        }
+    }
+}
+
+document.querySelector('.dropdown-btn').addEventListener('click', function () {
+    var dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+});
+
+// Close the dropdown when clicking outside of it
+document.addEventListener('click', function (event) {
+    var dropdownContent = document.querySelector('.dropdown-content');
+    var dropdownBtn = document.querySelector('.dropdown-btn');
+    
+    if (!dropdownContent.contains(event.target) && event.target !== dropdownBtn) {
+        dropdownContent.style.display = 'none';
+    }
+});
+
 weather.fetchWeather('Berkeley');
 
-// Add event listener to the search button to trigger searchWeather() when clicked
 document.querySelector('.search-btn').addEventListener('click', searchWeather);
 
-// Add event listener to the search input to trigger searchWeather() when Enter key is pressed
 document.querySelector('.search-bar').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent form submission
+        event.preventDefault();
         searchWeather();
     }
 });
+
+loadSearchHistory();
